@@ -65,3 +65,6 @@ $(document).ready(function()
     var getCurrentHour = (moment().format('H'));
 
 }
+
+
+//add some comments
