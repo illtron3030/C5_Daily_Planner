@@ -85,10 +85,18 @@ $(document).ready(function()
         {
             stateClass ="future";
         } 
+        $("#time"+i).append("<textarea id=\"textArea" + i + "\"" + "class=\"col-8 " + stateClass + "\"textarea\">" + schedule[i].tasks + "</textarea>");
+        $("#time"+i).append("<div id=\"saveBtn" + i + "\"" + "data-index=\"" + i + "\"" + "class=\"col-2 saveBtn\">" + "save" + "</div>");
+    });
 
-        
-       
-    }
+    $(".saveBtn").click(function(event) 
+    {
+        var element = event.target;
+        var index = parseInt($(element).attr("data-index"),10);
+        saveTask(index);
+    });
+});
+
 
 
 
