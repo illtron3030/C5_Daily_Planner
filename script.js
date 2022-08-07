@@ -61,10 +61,36 @@ $(document).ready(function()
 
     $('#currentDay').text(moment().format('MMM Do YYY, h:mm:ss a'));
 
-    var scheduleContainer = $("#schduleContainer");
+    var scheduleContainer = $("#scheduleContainer");
     var getCurrentHour = (moment().format('H'));
 
-}
+    $.each(schedule, function(i, time)
+
+    {
+        scheduleContainer.append("<div id=\"time" + i + "\"" + "class=\"row\"></div>");
+        $("#time"+i).append("<div id=\"currentTime" + i + "\"" + "class=\"col-2 hour\">" + time.Time + "</div>");
+        var scheduleHour = time.tag;
+
+        var stateClass = "";
+        if (getCurrentHour > scheduleHour)
+        {
+            stateClass ="past";
+        }
+        {
+        else if (getCurrentHour == scheduleHour)
+        {
+            stateClass ="present";
+        }
+        else if (getCurrentHour < scheduleHour)
+        {
+            stateClass ="future";
+        } 
+
+        
+       
+    }
+
+
 
 
 //add some comments
