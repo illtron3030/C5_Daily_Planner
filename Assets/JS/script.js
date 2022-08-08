@@ -1,4 +1,4 @@
-var schedule = 
+let schedule = 
 [
     {
         Time: "9 am",
@@ -55,53 +55,49 @@ var schedule =
     },
 ];
 
-$(document).ready(function()
+$(function()
 {
     loadTasks();
 
-    $('#currentDay').text(moment().format('MMM Do YYY, h:mm:ss a'));
+    $('#currentDay').text(moment().format('MMMM Do YYYY, h:mm:ss a'));
 
-    var scheduleContainer = $("#scheduleContainer");
-    var getCurrentHour = (moment().format('H'));
+    let scheduleContainer = $(".container");
+    console.log(scheduleContainer)
+    let getCurrentHour = (moment().format('H'));
+$.each(schedule, function(i, time){
+    scheduleContainer.append("<div id=\"time" + i + "\"" + "class=\"row\"></div>");
+         $("#time"+i).append("<div id=\"currentTime" + i + "\"" + "class=\"col-2 hour\">" + time.Time + "</div>");
+        let scheduleHour = time.tag;
+        let stateClass = "";
+                if (getCurrentHour > scheduleHour)
+                {
+                    stateClass ="past";
+                }
+                else if (getCurrentHour == scheduleHour){
+                    stateClass ="present";
+                }
+                else if (getCurrentHour < scheduleHour){
+                stateClass ="future";
+                } 
 
-    $.each(schedule, function(i, time)
-
-    {
-        scheduleContainer.append("<div id=\"time" + i + "\"" + "class=\"row\"></div>");
-        $("#time"+i).append("<div id=\"currentTime" + i + "\"" + "class=\"col-2 hour\">" + time.Time + "</div>");
-        var scheduleHour = time.tag;
-
-        var stateClass = "";
-        if (getCurrentHour > scheduleHour)
-        {
-            stateClass ="past";
-        }
-        {
-        else if (getCurrentHour == scheduleHour)
-        {
-            stateClass ="present";
-        }
-        else if (getCurrentHour < scheduleHour)
-        {
-            stateClass ="future";
-        } 
-        $("#time"+i).append("<textarea id=\"textArea" + i + "\"" + "class=\"col-8 " + stateClass + "\"textarea\">" + schedule[i].tasks + "</textarea>");
-        $("#time"+i).append("<div id=\"saveBtn" + i + "\"" + "data-index=\"" + i + "\"" + "class=\"col-2 saveBtn\">" + "save" + "</div>");
-    });
+    $("#time"+i).append("<textarea id=\"textArea" + i + "\"" + "class=\"col-8 " + stateClass + "\"textarea\">" + schedule[i].tasks + "</textarea>");
+    $("#time"+i).append("<div id=\"saveBtn" + i + "\"" + "data-index=\"" + i + "\"" + "class=\"col-2 saveBtn\">" + "save" + "</div>");
+})
 
     $(".saveBtn").click(function(event) 
     {
-        var element = event.target;
-        var index = parseInt($(element).attr("data-index"),10);
+        let element = event.target;
+        let index = parseInt($(element).attr("data-index"),10);
+        console.log(index)
         saveTask(index);
     });
 });
 
 function loadTasks(){
-    var data = localStorage.getItem("schedule");
+    let data = localStorage.getItem("schedule");
     if (data)
     {
-      var scheduleArray = JSON.parse(data);
+      let scheduleArray = JSON.parse(data);
       $.each(scheduleArray, function (i, item)
     {
       schedule[i].tasks = item.tasks;
@@ -114,7 +110,7 @@ function loadTasks(){
 
 function saveTask(index)
 {
-    var textArea = $("#textArea" + index);
+    let textArea = $("#textArea" + index);
     if (textArea.val() !=="")
     {
         schedule[index].tasks = textArea.val();
@@ -122,7 +118,7 @@ function saveTask(index)
     }
     else
     {
-        prompt("No tasks to save!")
+        alert("No tasks to save!")
     }
 };
 
