@@ -19,37 +19,37 @@ let schedule =
     },
 
     {
-        Time: "12 pm,",
+        Time: "12 pm",
         tag: 12,
         tasks:""
     },
 
     {
-        Time: "1 pm,",
+        Time: "1 pm",
         tag: 13,
         tasks:""
     },
 
     {
-        Time: "2 pm,",
+        Time: "2 pm",
         tag: 14,
         tasks:""
     },
 
     {
-        Time: "3 pm,",
+        Time: "3 pm",
         tag: 15,
         tasks:""
     },
 
     {
-        Time: "4 pm,",
+        Time: "4 pm",
         tag: 16,
         tasks:""
     },
 
     {
-        Time: "5 pm,",
+        Time: "5 pm",
         tag: 17,
         tasks:""
     },
@@ -59,7 +59,7 @@ $(function()
 {
     loadTasks();
 
-    $('#currentDay').text(moment().format('MMMM Do YYYY, h:mm:ss a'));
+    $('#currentDay').text(moment().format('MMMM Do YYYY, h:mm A'));
 
     let scheduleContainer = $(".container");
     console.log(scheduleContainer)
