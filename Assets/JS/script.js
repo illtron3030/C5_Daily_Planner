@@ -97,8 +97,33 @@ $(document).ready(function()
     });
 });
 
+function loadTasks(){
+    var data = localStorage.getItem("schedule");
+    if (data)
+    {
+      var scheduleArray = JSON.parse(data);
+      $.each(scheduleArray, function (i, item)
+    {
+      schedule[i].tasks = item.tasks;
+    });
+    }
+    else {
+        localStorage.setItem("schedule", JSON.stringify(schedule));
+    }
+}
 
-
-
+function saveTask(index)
+{
+    var textArea = $("#textArea" + index);
+    if (textArea.val() !=="")
+    {
+        schedule[index].tasks = textArea.val();
+        localStorage.setItem("schedule", JSON.stringify(schedule));
+    }
+    else
+    {
+        prompt("No tasks to save!")
+    }
+};
 
 //add some comments
