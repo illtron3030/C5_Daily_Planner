@@ -60,7 +60,7 @@ $(function () {
   $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm A"));
 
   let scheduleContainer = $(".container");
-  console.log(scheduleContainer);
+  //console.log(scheduleContainer);
   let getCurrentHour = moment().format("H");
   $.each(schedule, function (i, time) {
     scheduleContainer.append('<div id="time' + i + '"' + 'class="row"></div>');
@@ -108,7 +108,7 @@ $(function () {
   $(".saveBtn").click(function (event) {
     let element = event.target;
     let index = parseInt($(element).attr("data-index"), 10);
-    console.log(index);
+    //console.log(index);
     saveTask(index);
   });
 });
@@ -135,3 +135,4 @@ function saveTask(index) {
   }
 }
 
+//when I format document using Prettier is makes some things look off...
