@@ -1,6 +1,6 @@
 # Challenge 5 - Daily Planner
 
-    This challenge was to make a daily planner for work hours of a typical employee which is 9am to 5pm.  /nThis challenge provided starter code for HTML and CSS and I had to write all the Javascript code.  This challenge involved using jQuery which even though is in its sunsetting years is still a useful thing to know because it will still be around for the next five or so years.  The other point of this challenge was to use third party API's like jQuery, bootstrap and moment.js.  JSON was also used in this project.
+    This challenge was to make a daily planner for work hours of a typical employee which is 9am to 5pm.  This challenge provided starter code for HTML and CSS and I had to write all the Javascript code.  This challenge involved using jQuery which even though is in its sunsetting years is still a useful thing to know because it will still be around for the next five or so years.  The other point of this challenge was to use third party API's like jQuery, bootstrap and moment.js.  JSON was also used in this project.
 
 Description:
 
